@@ -7,5 +7,12 @@ var startbtn = document.getElementById("start");
 var submitbtn = document.getElementById('submit');
 var timer = document.getElementById('timer');
 var initials = document.getElementById('initials');
+var mainscreen = documnet.getElementById('main');
 
+function startquestion() {
+    mainscreen.setAttribute("class", "hide");
 
+    questions.removeAttribute("class");
+
+    var timer = setInterval(this, 1000)
+};
