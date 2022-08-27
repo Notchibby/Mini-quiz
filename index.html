@@ -11,7 +11,7 @@
     <div class="highscore"> <a href="highscore"> Highscore </a> </div>
     <div class="timer">Time: <span id="time">0</span></div>
 </nav>
-<main>
+<main id="frontpage">
     <h1>Coding Quiz challenge</h1>
     <p>
         Try to answer the following code related questions within the time
@@ -21,17 +21,17 @@
     <button id="start" type="button">Start quiz</button>
 
 </main>
-<section hidden class="Questions">
-    <h2> title </h2>
+<section hidden id="Questions">
+    <h2 id="title"> title</h2>
     <ul>
-        <li><button>Options</button></li>
-        <li><button>Options</button></li>
-        <li><button>Options</button></li>
-        <li><button>Options</button></li>
+        <li><button id="options" type="button">Options</button></li>
+        <li><button id="options" type="button">Options</button></li>
+        <li><button id="options" type="button">Options</button></li>
+        <li><button id="options" type="button">Options</button></li>
     </ul>
 </section>
 
-<section hidden class="endpage">
+<section hidden id="endpage">
     <h3>All Done!</h3>
     <p>You scored: <span id="finalscore"> 0</span></p>
     <p>
@@ -42,7 +42,7 @@
 </section>
 
 <script src="assets\Questions.js"></script>
-<script src="assets\Questions.js"></script>
+<script src="assets\logic.js"></script>
 
 <body>
 

@@ -61,3 +61,9 @@ a:link {
 button:hover {
     background-color: #603860;
 }
+
+#Questions {
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 10%;
+}

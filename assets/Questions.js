@@ -1,5 +1,5 @@
 //creates a list of all the questions, options and answers
-var Questions = [
+var QuestionId = [
     {
         title: "Commonly used data types DO NOT include:",
         options: ["Strings", "Booleans", "Alerts", "Numbers"],
@@ -27,3 +27,4 @@ var Questions = [
         answer: " Console.log"
     },
 ];
+
