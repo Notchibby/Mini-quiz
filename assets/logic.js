@@ -22,12 +22,13 @@ function startquestion() {
 
 
     extractquestion(currentQuestionIndex)
-    let count = 0;
+    let count = time;
 
     timerId = setInterval(function clockTick() {
-        count += 1;
+        count -= 1;
         timer.textContent = count;
     }, 1000)
+    timer.textContent = time;
 };
 
 function extractquestion() {
@@ -46,25 +47,30 @@ function extractquestion() {
 
 
         btn.addEventListener('click', function () {
+            if (currentQuestionIndex < QuestionId.length - 1) {
 
-            currentQuestionIndex++
+                currentQuestionIndex++
+            }
+            else {
+                endquiz()
+            }
 
             btnContainer.innerHTML = ""
 
             extractquestion(currentQuestionIndex)
+            clickquestion()
         })
     };
 };
 
 
 
-function clickquestion(event) {
-    var btn = event.target;
-    if (!btn.matches('.questionselector')) {
+function clickquestion() {
+    if (!btnContainer.matches('.questionselector')) {
         return;
     };
 
-    if (btn.value !== QuestionId[currentQuestionIndex].answer) {
+    if (btnContainer.value !== QuestionId[currentQuestionIndex].answer) {
         time = time - 10;
         if (time < 0) {
             time = 0;
@@ -99,19 +105,19 @@ function endquiz() {
 
 startbtn.onclick = startquestion
 
-// function highscore() {
-//     initials = initials.value.trim();
-//     if (initials !== '') {
-//         var highscores =
-//             JSON.parse(window.localStorage.getItem('highscores')) || [];
+function highscore() {
+    initials = initials.value.trim();
+    if (initials !== '') {
+        var highscores =
+            JSON.parse(window.localStorage.getItem('highscores')) || [];
 
-//         var currentscore = {
-//             score: time,
-//             initials: initials,
-//         };
+        var currentscore = {
+            score: time,
+            initials: initials,
+        };
 
-//         highscores.push(currentscore);
-//         window.localStorage.setItem('highscores', JSON.stringify(highscores));
+        highscores.push(currentscore);
+        window.localStorage.setItem('highscores', JSON.stringify(highscores));
 
-//     }
-// };
+    }
+};
