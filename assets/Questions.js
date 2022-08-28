@@ -23,7 +23,7 @@ var QuestionId = [
     },
     {
         title: "A very useful tool used during developement and debugging for printing content to the debugger is: ",
-        options: ["JavaScript", "Terminnal/bash", "For loops", "Console.log."],
+        options: ["JavaScript", "Terminnal/bash", "For loops", "Console.log"],
         answer: " Console.log"
     },
 ];

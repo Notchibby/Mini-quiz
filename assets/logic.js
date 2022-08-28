@@ -46,7 +46,7 @@ function extractquestion() {
         btnContainer.append(li)
 
 
-        btn.addEventListener('click', function () {
+        btn.addEventListener('click', function (event) {
             if (currentQuestionIndex < QuestionId.length - 1) {
 
                 currentQuestionIndex++
@@ -58,29 +58,30 @@ function extractquestion() {
             btnContainer.innerHTML = ""
 
             extractquestion(currentQuestionIndex)
-            clickquestion()
+            clickquestion(event.target.textContent)
+
         })
     };
 };
 
 
 
-function clickquestion() {
-    if (!btnContainer.matches('.questionselector')) {
+function clickquestion(selectedanswer) {
+    if (!selectedanswer.matches('.questionselector')) {
         return;
     };
 
-    if (btnContainer.value !== QuestionId[currentQuestionIndex].answer) {
+    if (selectedanswer !== QuestionId[currentQuestionIndex].answer) {
         time = time - 10;
         if (time < 0) {
             time = 0;
         };
         timer.textContent = time;
-        feedback.hidden = false;
+
         feedback.textContent = "Wrong!";
     }
     else {
-        feedback.hidden = false;
+
         feedback.textContent = 'Correct!';
 
     };
@@ -91,7 +92,6 @@ function clickquestion() {
 
     else { extractquestion() }
 };
-
 
 function endquiz() {
     clearInterval(timerId)
@@ -104,6 +104,7 @@ function endquiz() {
 };
 
 startbtn.onclick = startquestion
+btnContainer.onclick = clickquestion
 
 function highscore() {
     initials = initials.value.trim();
