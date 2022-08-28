@@ -8,7 +8,7 @@
 </head>
 <nav>
 
-    <div class="highscore"> <a href="highscore"> Highscore </a> </div>
+    <div class="highscore"> <a href="#HighscoreEl"> Highscore </a> </div>
     <div class="timer">Time: <span id="time">0</span></div>
 </nav>
 <main id="frontpage">
@@ -36,6 +36,16 @@
         Enter initials: <input type="text" id="initials" max="3">
     </p>
     <button id="submit"> Submit</button>
+
+</section>
+
+<section hidden id="HighscoreEl">
+    <h4>Highscores</h4>
+    <ol id="Highscore"></ol>
+    <div id="Highscoreprop">
+        <button id="restart">Go back</button>
+        <button id="clearhighscore">Clear Highscore</button>
+    </div>
 
 </section>
 
