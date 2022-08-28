@@ -1,5 +1,5 @@
 var currentquestionnumber = 0;
-var time = QuestionId.length * 10;
+var time = QuestionId.length * 20;
 var timerId;
 
 var questions = document.getElementById("Questions");
@@ -67,12 +67,9 @@ function extractquestion() {
 
 
 function clickquestion(selectedanswer) {
-    if (!selectedanswer.matches('.questionselector')) {
-        return;
-    };
 
     if (selectedanswer !== QuestionId[currentQuestionIndex].answer) {
-        time = time - 10;
+        time -= 10;
         if (time < 0) {
             time = 0;
         };
@@ -85,6 +82,11 @@ function clickquestion(selectedanswer) {
         feedback.textContent = 'Correct!';
 
     };
+
+    feedback.setAttribute('class', 'feedback');
+    setTimeout(function () {
+        feedback.setAttribute('class', 'feedback hide');
+    }, 1000);
 
     currentQuestionIndex++;
 
