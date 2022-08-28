@@ -19,7 +19,7 @@ var QuestionId = [
     {
         title: "String values must be enclosed within ________ when being assigned to variables. ",
         options: ["Commas", "Curly brackets", "Quotes", "Parenthesis"],
-        answer: "Curly brackets"
+        answer: "Quotes"
     },
     {
         title: "A very useful tool used during developement and debugging for printing content to the debugger is: ",

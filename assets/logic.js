@@ -52,31 +52,34 @@ function extractquestion() {
 function clickquestion(event) {
     selectedanswer = event.target;
 
-    // if (!selectedanswer.matches('options')) {
+
+    // if (!selectedanswer.matches('.options')) {
     //     return;
     // }
-    console.log(selectedanswer);
-    if (selectedanswer.value = QuestionId[currentQuestionIndex].answer) {
-        console.log("correct!")
-        // time -= 10;
-        // if (time < 0) {
-        //     time = 0;
-        // };
-        // timer.textContent = time;
 
-        // feedback.textContent = "Wrong!";
+    if (selectedanswer.textContent !== QuestionId[currentQuestionIndex].answer) {
+
+        time -= 10;
+        if (time < 0) {
+            time = 0;
+        };
+        timer.textContent = time;
+        feedback.hidden = false
+
+        feedback.textContent = "Wrong!";
+
     }
     else {
-        console.log('wrong!')
 
-        // feedback.textContent = 'wrong';
+        feedback.hidden = false
+        feedback.textContent = 'Correct!';
 
     };
 
-    feedback.setAttribute('class', 'feedback');
+
     setTimeout(function () {
-        feedback.setAttribute('class', 'feedback hide');
-    }, 1000);
+        feedback.hidden = true
+    }, 800);
 
     currentQuestionIndex++;
 
