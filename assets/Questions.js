@@ -22,7 +22,7 @@ var QuestionId = [
         answer: " Curly brackets"
     },
     {
-        title: "A vert useful tool used during developement and debugging for printing content to the debugger is: ",
+        title: "A very useful tool used during developement and debugging for printing content to the debugger is: ",
         options: ["JavaScript", "Terminnal/bash", "For loops", "Console.log."],
         answer: " Console.log"
     },
