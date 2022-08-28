@@ -7,18 +7,18 @@ var QuestionId = [
     },
     {
         title: "The condition in an if/else statement is enclosed within _________. ",
-        options: ["Quotes", "Curly brackets", "Parenthesis", "Square brackets."],
+        options: ["Quotes", "Curly brackets", "Parenthesis", "Square brackets"],
         answer: "Parenthesis"
 
     },
     {
         title: "Arrays in JavaScript can be used to store __________. ",
-        options: ["Numbers and strings", "Other arrays", "Booleans", "All of the above."],
+        options: ["Numbers and strings", "Other arrays", "Booleans", "All of the above"],
         answer: "All of the above"
     },
     {
         title: "String values must be enclosed within ________ when being assigned to variables. ",
-        options: ["Commas", "Curly brackets", "Quotes", "Parenthesis."],
+        options: ["Commas", "Curly brackets", "Quotes", "Parenthesis"],
         answer: "Curly brackets"
     },
     {

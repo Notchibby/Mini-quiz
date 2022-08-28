@@ -1,5 +1,5 @@
 var currentquestionnumber = 0;
-var time = QuestionId.length * 20;
+var time = QuestionId.length * 10;
 var timerId;
 
 var questions = document.getElementById("Questions");
@@ -14,6 +14,10 @@ var feedback = document.getElementById('feedback');
 var endpage = document.getElementById('endpage');
 var currentQuestionIndex = 0;
 
+function clockTick() {
+    time -= 1;
+    timer.textContent = time;
+}
 
 function startquestion() {
     mainscreen.style.display = 'none';
@@ -22,12 +26,8 @@ function startquestion() {
 
 
     extractquestion(currentQuestionIndex)
-    let count = time;
 
-    timerId = setInterval(function clockTick() {
-        count -= 1;
-        timer.textContent = count;
-    }, 1000)
+    timerId = setInterval(clockTick, 1000)
     timer.textContent = time;
 };
 
@@ -41,45 +41,35 @@ function extractquestion() {
         var li = document.createElement('li');
         var btn = document.createElement('button');
         var optionselector = questionselector.options[i];
-        btn.append(optionselector)
-        li.append(btn)
-        btnContainer.append(li)
-
-
-        btn.addEventListener('click', function (event) {
-            if (currentQuestionIndex < QuestionId.length - 1) {
-
-                currentQuestionIndex++
-            }
-            else {
-                endquiz()
-            }
-
-            btnContainer.innerHTML = ""
-
-            extractquestion(currentQuestionIndex)
-            clickquestion(event.target.textContent)
-
-        })
+        btn.append(optionselector);
+        li.append(btn);
+        btnContainer.append(li);
     };
 };
 
 
 
-function clickquestion(selectedanswer) {
+function clickquestion(event) {
+    selectedanswer = event.target;
 
-    if (selectedanswer !== QuestionId[currentQuestionIndex].answer) {
-        time -= 10;
-        if (time < 0) {
-            time = 0;
-        };
-        timer.textContent = time;
+    // if (!selectedanswer.matches('options')) {
+    //     return;
+    // }
+    console.log(selectedanswer);
+    if (selectedanswer.value = QuestionId[currentQuestionIndex].answer) {
+        console.log("correct!")
+        // time -= 10;
+        // if (time < 0) {
+        //     time = 0;
+        // };
+        // timer.textContent = time;
 
-        feedback.textContent = "Wrong!";
+        // feedback.textContent = "Wrong!";
     }
     else {
+        console.log('wrong!')
 
-        feedback.textContent = 'Correct!';
+        // feedback.textContent = 'wrong';
 
     };
 
@@ -92,7 +82,7 @@ function clickquestion(selectedanswer) {
 
     if (time <= 0 || currentQuestionIndex === QuestionId.length) { endquiz() }
 
-    else { extractquestion() }
+    else { extractquestion(currentQuestionIndex) }
 };
 
 function endquiz() {
@@ -101,9 +91,9 @@ function endquiz() {
     endpage.hidden = false;
     var finalscore = document.getElementById('finalscore');
     finalscore.textContent = time;
-
-
 };
+
+
 
 startbtn.onclick = startquestion
 btnContainer.onclick = clickquestion
